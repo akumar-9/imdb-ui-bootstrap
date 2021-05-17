@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>demo</title>
+    </head>
+    <body>
+        <script src="/boostrap/jquery-3.6.0.js"></script>
+        <script>
+            $.ajax({url:"https://localhost:44382/movies",type:"GET",success:function(r){
+                console.log("success");
+                document.write(JSON.parse(r));
+            }})
+        </script>
+    </body>
+</html>
