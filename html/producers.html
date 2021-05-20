@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Producers
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <style>
+        .card {
+            margin-right: 1%;
+            margin-top: 2%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar bg-dark text-light">
+            <div class="container-fluid">
+                <h1>Producers</h1>
+                <div>
+                    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#producerModal">+
+                        Producer</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="row">
+    </section>
+    <div class="modal fade" id="producerModal" tabindex="-1" aria-labelledby="producerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="producerModalLabel">Add Producer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addProducerForm">
+                        <div class="form-group mb-2">
+                            <label for="producerName">Name:</label>
+                            <input class="form-control" type="text" id="producerName">
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <label for="producerDob">Date of Birth:</label>
+                            <input type="date" id="producerDob" class="form-control">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="producerBio">Bio:</label>
+                            <textarea class="form-control" id="producerBio"></textarea>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label>Gender:</label>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="producerGender" value="male">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="producerGender" value="female">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="addModalClose">Close</button>
+                    <button type="submit" id="addProducer" class="btn btn-primary" form="addProducerForm">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="producerEditModal" tabindex="-1" aria-labelledby="producerEditModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="producerEditModalLabel">Edit Producer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProducerForm">
+                        <div class="form-group mb-2">
+                            <label for="producerNewName">Name:</label>
+                            <input class="form-control" type="text" id="producerNewName">
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <label for="producerNewDob">Date of Birth:</label>
+                            <input type="date" id="producerNewDob" class="form-control">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="producerNewBio">Bio:</label>
+                            <textarea class="form-control" id="producerNewBio"></textarea>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label>Gender:</label>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="producerNewGender" id="male"
+                                        value="male">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="producerNewGender" id="female"
+                                        value="female">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        id="editModalClose">Close</button>
+                    <button type="submit" class="btn btn-primary" form="editProducerForm">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../boostrap/jquery-3.6.0.js"></script>
+    <script src="../javascript/producers.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+    <script>
+        $("form").submit((e) => {
+            e.preventDefault();
+        })
+    </script>
+
+</body>
+
+
+</html>

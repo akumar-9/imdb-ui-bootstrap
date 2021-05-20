@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Movie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+</head>
+
+<body class="h-100">
+    <header>
+        <nav class="nav bg-dark text-light mb-4">
+            <div class="container-fluid">
+                <h1 id="heading"> Add Movie</h1>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-5">
+                <form id="movieForm">
+                    <div class="form-group mb-3">
+                        <label for="movie-name">Name:</label>
+                        <input type="text" class="form-control" id="movie-name" required="required">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="yor">Year of Release:</label>
+                        <input type="number" min="1900" max="2021" class="form-control" id="yor" required="required">
+                    </div>
+                    <div class="form-group row mb-3">
+                        <div class="col-1">
+                            <label for="producer">Producer:</label>
+                        </div>
+                        <div class="col-13">
+                            <select id="producer" class="form-control" required="required">
+                            </select>
+                        </div>
+                        <div class="col-3  mb-18 col-form-label">
+                            <input type="button" value="+Producer" class="btn btn-sm btn-secondary"
+                                data-bs-toggle="modal" data-bs-target="#producerModal">
+                        </div>
+                    </div>
+                    <div class=" row form-group mb-3">
+                        <div class="col-1">
+                            <label for="actor">Actor:</label>
+                        </div>
+                        <div class="col-13">
+                            <select id="actor" multiple="multiple" class="form-control" required="required">
+                            </select>
+                        </div>
+                        <div class="col-3  mb-18 col-form-label">
+                            <input type="button" value="+Actor" class="btn btn-sm btn-secondary" data-bs-toggle="modal"
+                                data-bs-target="#actorModal">
+                        </div>
+                    </div>
+                    <div class=" row form-group mb-3">
+                        <div class="col-4">
+                            <label for="genre">Genre:</label>
+                        </div>
+                        <div class="col-sm-13">
+                            <select id="genre" class="form-control" multiple="multiple" required="required">
+                            </select>
+                        </div>
+                        <div class="col-3  mb-18 col-form-label">
+                            <input type="button" value="+Genre" class="btn btn-sm btn-secondary" data-bs-toggle="modal"
+                                data-bs-target="#genreModal">
+                        </div>
+                    </div>
+                    <div class="row form-group mb-3">
+                        <div class="col-4">
+                            <label for="plot">Plot:</label>
+
+                        </div>
+                        <div class="col-12">
+                            <textarea class="form-control" cols="80" rows="3" id="plot"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="poster">Poster:</label>
+                        <input type="file" class="form-control-file" id="poster">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="submit"></label>
+                        <input type="submit" class="btn btn-primary">
+                    </div>
+                </form>
+
+                <!-- Modal -->
+                <div class="modal fade" id="producerModal" tabindex="-1" aria-labelledby="producerModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="producerModalLabel">Add Producer</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="addProducerForm">
+                                    <div class="form-group mb-2">
+                                        <label for="producerName">Name:</label>
+                                        <input class="form-control" type="text" id="producerName">
+                                    </div>
+            
+                                    <div class="form-group mb-2">
+                                        <label for="producerDob">Date of Birth:</label>
+                                        <input type="date" id="producerDob" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <label for="producerBio">Bio:</label>
+                                        <textarea class="form-control" id="producerBio"></textarea>
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <label>Gender:</label>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="producerGender" value="male">
+                                                Male
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="producerGender" value="female">
+                                                Female
+                                            </label>
+                                        </div>
+                                    </div>
+            
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="producerModalClose">Close</button>
+                                <button type="submit" class="btn btn-primary" form="addProducerForm">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="actorModal" tabindex="-1" aria-labelledby="actorModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="actorModalLabel">Add Actor</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="ActorForm">
+                                    <div class="form-group mb-2">
+                                        <label for="actorName">Name:</label>
+                                        <input class="form-control" type="text" id="actorName">
+                                    </div>
+            
+                                    <div class="form-group mb-2">
+                                        <label for="actorDob">Date of Birth:</label>
+                                        <input type="date" id="actorDob" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <label for="actorBio">Bio:</label>
+                                        <textarea class="form-control" id="actorBio"></textarea>
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <label>Gender:</label>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="actorGender" value="male"> Male
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="actorGender" value="female">
+                                                Female
+                                            </label>
+                                        </div>
+                                    </div>
+            
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="actorModalClose">Close</button>
+                                <button type="submit" class="btn btn-primary" form="ActorForm" >Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="genreModal" tabindex="-1" aria-labelledby="genreModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="genreModalLabel">Add Genre</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="addGenreForm">
+                                    <div class="form-group mb-2">
+                                        <label for="genreName">Name:</label>
+                                        <input class="form-control" id="genreName" type="text">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                    id="genreModalClose">Close</button>
+                                <button type="submit"  class="btn btn-primary" form="addGenreForm">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#actor,#genre,#producer').select2();
+        });
+        $("form").submit((e) => {
+            e.preventDefault();
+        })
+    </script>
+        <script src="../javascript/addMovie.js"></script>
+
+</body>
+
+</html>

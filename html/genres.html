@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Genres
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <style>
+        .card {
+            margin-right: 1%;
+            margin-top: 2%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar bg-dark text-light">
+            <div class="container-fluid">
+                <h1>Genres</h1>
+                <div>
+                    <button class="btn btn-secondary" class="btn btn-sm btn-secondary" data-bs-toggle="modal"
+                        data-bs-target="#genreModal">+ Genre</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="row">
+    </section>
+    <div class="modal fade" id="genreModal" tabindex="-1" aria-labelledby="genreModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="genreModalLabel">Add Genre</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addGenreForm">
+                        <div class="form-group mb-2">
+                            <label for="genreName">Name:</label>
+                            <input class="form-control" id="genreName" type="text">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        id="modalClose">Close</button>
+                    <button type="submit" id="addGenre" class="btn btn-primary" form="addGenreForm">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="genreEditModal" tabindex="-1" aria-labelledby="genreEditModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="genreEditModalLabel">Edit Genre</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editGenreForm">
+                        <div class="form-group mb-2">
+                            <label for="genreNewName">Name:</label>
+                            <input class="form-control" id="genreNewName" type="text">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        id="editModalClose">Close</button>
+                    <button type="submit" class="btn btn-primary" form="editGenreForm">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../boostrap/jquery-3.6.0.js"></script>
+    <script src="../javascript/genres.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+    <script>
+        $("form").submit((e) => {
+            e.preventDefault();
+        })
+    </script>
+</body>
+
+
+</html>
