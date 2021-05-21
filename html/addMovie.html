@@ -18,17 +18,29 @@
 
 <body class="h-100">
     <header>
-        <nav class="nav bg-dark text-light mb-4">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <h1 id="heading"> Add Movie</h1>
+              <a class="navbar-brand" href="#">IMDB</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link active" aria-current="page" href="./movies.html">Movies</a>
+                  <a class="nav-link" href="./actors.html">Actors</a>
+                  <a class="nav-link" href="./producers.html">Producers</a>
+                  <a class="nav-link" href="./genres.html" >Genres</a>
+                </div>
+              </div>
             </div>
         </nav>
     </header>
     <div class="container-fluid h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-5">
+                <h1 class="text-center" id="heading">Add Movie</h1>
                 <form id="movieForm">
-                    <div class="form-group mb-3">
+                    <div class="form-group mt-4 mb-3">
                         <label for="movie-name">Name:</label>
                         <input type="text" class="form-control" id="movie-name" required="required">
                     </div>

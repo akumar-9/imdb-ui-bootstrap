@@ -12,15 +12,27 @@
         </style>
     </head>
     <body>
-        <header>        
-            <nav class="navbar bg-dark text-light">
+        <header>  
+              <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <h1>Movies</h1>
-                    <div>
-                        <a class="btn btn-secondary" href="./addMovie.html?type=add">+Movie</a>
+                  <a class="navbar-brand" href="#">IMDB</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                      <a class="nav-link active" aria-current="page" href="./movies.html">Movies</a>
+                      <a class="nav-link" href="./actors.html">Actors</a>
+                      <a class="nav-link" href="./producers.html">Producers</a>
+                      <a class="nav-link" href="./genres.html" >Genres</a>
                     </div>
+                  </div>
                 </div>
-            </nav>                            
+                <div class="text-right">
+                    <a class="btn btn-secondary " href="./addMovie.html?type=add">+Movie</a>
+                </div>
+              </nav> 
+      
         </header>
         <section class="row container-fluid">           
         </section>

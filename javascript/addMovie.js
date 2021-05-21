@@ -42,33 +42,36 @@ $(document).ready(function () {
     }
     })
 
-function populateActor(){
+function populateActor(id){
     promises.push($.ajax({
         type: "GET", url: "https://localhost:5001/actors", success: function (response) {
             $.each(response, function (index, value) {
                 $("#actor").append(`<option value= "${value.id}">${value.name}</option>`)
-            })
+            });
+            $("#actor").val(id).trigger("change");
         }
     }))
 }
 
-function populateProducer(){
+function populateProducer(id){
     promises.push($.ajax({
         type: "GET", url: "https://localhost:5001/producers", success: function (response) {
             $("#producer").append(`<option value= "null">Choose one</option>`)
             $.each(response, function (index, value) {
                 $("#producer").append(`<option value= "${value.id}">${value.name}</option>`)
-            })
+            });
+            $("#producer").val(id).trigger("change");
         }
     }))
 }
 
-function populateGenre(){
+function populateGenre(id){
     promises.push($.ajax({
         type: "GET", url: "https://localhost:5001/genres", success: function (response) {
             $.each(response, function (index, value) {
                 $("#genre").append(`<option value= "${value.id}">${value.name}</option>`)
-            })
+            });
+            $("#genre").val(id).trigger("change");
         }
     }))
 }
@@ -181,11 +184,11 @@ function addActor(){
         success: function(response){
             $("#actorModalClose").trigger("click");
             $("#actor").empty();
-            populateActor();    
+            populateActor(response.id);           
         },
         error: function(e){
             console.error(e);
-        }
+        }        
     });
 }
 
@@ -205,7 +208,7 @@ function addProducer(){
         success: function(response){
             $("#producerModalClose").trigger("click");
             $("#producer").empty();
-            populateProducer(); 
+            populateProducer(response.id); 
         },
         error: function(e){
             console.error(e);
@@ -225,7 +228,7 @@ $("#addGenreForm").on("submit",  function(){
         success: function(response){
             $("#genreModalClose").trigger("click");
             $("#genre").empty();
-            populateGenre();
+            populateGenre(response.id);            
         },
         error: function(e){ 
             console.log(e);}
